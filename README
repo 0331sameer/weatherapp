@@ -1,0 +1,38 @@
+# Weather Application
+
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Setup Instructions](#setup-instructions)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
+
+## Overview
+
+This Weather Application provides real-time weather data, forecasts, and visualizations for cities around the world. Users can search for any city and view detailed weather information, including temperature, humidity, wind speed, and weather conditions. The app also features various charts to visualize weather trends.
+
+## Features
+
+- **Real-time Weather Data**: Fetches and displays current weather information for a specified city.
+- **Weather Forecast**: Provides a 5-day weather forecast with average temperature and weather conditions.
+- **Interactive Charts**: Displays average temperature trends and weather conditions using bar, line, and doughnut charts.
+- **Responsive Design**: Mobile-friendly layout that adjusts to different screen sizes.
+- **Background Images**: Changes background images based on current weather conditions.
+
+## Technologies Used
+
+- **HTML**: Structure of the web application.
+- **CSS**: Styling and layout.
+- **JavaScript**: Dynamic behavior and API integration.
+- **OpenWeatherMap API**: For fetching weather data.
+- **Chart.js**: For rendering charts and visualizations.
+
+## Setup Instructions
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/yourusername/weather-app.git
+   cd weather-app
