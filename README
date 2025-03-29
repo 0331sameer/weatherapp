@@ -34,5 +34,5 @@ This Weather Application provides real-time weather data, forecasts, and visuali
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/weather-app.git
+   git clone https://github.com/0331sameer/weatherapp
    cd weather-app
