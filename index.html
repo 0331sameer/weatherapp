@@ -1,141 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dashboard-WeatherApp</title>
-        <link rel="shortcut icon" href="http://icanbecreative.com/resources/images/favico.ico" />
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-        <meta property="og:url"           content="http://demo.icanbecreative.com/css3-animated-search-box/" />
-        <meta property="og:type"          content="website" />
-        <meta property="og:title"         content="CSS3 Animated Search Box" />
-        <meta property="og:description"   content="Your description" />
-        <meta property="og:image"         content="http://demo.icanbecreative.com/css3-animated-search-box/featured.jpg" />
-        
-        <link rel="stylesheet" href="style.css">
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
-
-    </head>
-    <body>
-        <nav>
-            <div class="logo">
-                <img src="images/logo.png" alt="logo">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard-WeatherApp</title>
+    <link
+      rel="shortcut icon"
+      href="http://icanbecreative.com/resources/images/favico.ico"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="images/logo.png" alt="logo" />
+      </div>
+      <ul>
+        <li id="Dashboard"><a href="#">Dashboard</a></li>
+        <li id="Tables"><a href="#">Tables</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div id="main-1">
+        <div>
+          <div class="search-div">
+            <form onsubmit="submitFn(this, event);">
+              <div class="search-wrapper">
+                <div class="input-holder">
+                  <input
+                    type="text"
+                    class="search-input"
+                    placeholder="Enter Location..."
+                  />
+                  <button
+                    class="search-icon"
+                    onclick="searchToggle(this, event);"
+                  >
+                    <span></span>
+                  </button>
+                </div>
+                <span class="close" onclick="searchToggle(this, event);"></span>
+                <div class="result-container"></div>
+              </div>
+            </form>
+          </div>
+          <div></div>
+        </div>
+        <div class="weather-info" id="weatherInfo">
+          <div class="weather-details">
+            <h1 id="cityName"></h1>
+            <div class="temperature-detail">
+              <img
+                width="50px"
+                id="temperatureIcon"
+                src=""
+                alt="temperature icon"
+              />
+              <h2 id="temperature"></h2>
             </div>
-            <ul>
-                <li id="Dashboard"><button></button><a href="#">Dashboard</a></li>
-                <li id="Tables"><a href="#">Tables</a></li>
-            </ul>
-        </nav>
-        <main>
-            <div id="main-1">
-                <div class="search-div">
-                    <form onsubmit="submitFn(this, event);">
-                        <div class="search-wrapper">
-                            <div class="input-holder">
-                                <input type="text" class="search-input" placeholder="Enter Location..." />
-                                <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
-                            </div>
-                            <span class="close" onclick="searchToggle(this, event);"></span>
-                            <div class="result-container">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div id="searching"></div>
-                <div class="weather-info" id="weatherInfo">
-                    <div class="weather-details">
-                        <h1 id="cityName"></h1>
-                        <div class="temperature-detail">
-                            <img width="50px" id="temperatureIcon" src="" alt="temperature icon">
-                            <h2 id="temperature"></h2>
-                        </div>
-                        <p id="conditions"></p>
-                        <p id="humidity"></p>
-                        <p id="windSpeed"></p>
-                    </div>
-                </div>
-                <div class="chart-container">
-                    <canvas  id="barChart"></canvas>
-                    <canvas id="doughnutChart"></canvas>
-                    <canvas id="lineChart"></canvas>
-                </div>
+            <p id="conditions"></p>
+            <p id="humidity"></p>
+            <p id="windSpeed"></p>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="barChart"></canvas>
+          <canvas id="doughnutChart"></canvas>
+          <canvas id="lineChart"></canvas>
+        </div>
+      </div>
+      <div id="main-2">
+        <div class="search-div">
+          <form onsubmit="submitFn(this, event);">
+            <div class="search-wrapper">
+              <div class="input-holder">
+                <input
+                  type="text"
+                  class="search-input"
+                  placeholder="Enter Location..."
+                />
+                <button
+                  class="search-icon"
+                  onclick="searchToggle(this, event);"
+                >
+                  <span></span>
+                </button>
+              </div>
+              <span class="close" onclick="searchToggle(this, event);"></span>
+              <div class="result-container"></div>
             </div>
-            <div id="main-2">
-                <div class="search-div">
-                    <form onsubmit="submitFn(this, event);">
-                        <div class="search-wrapper">
-                            <div class="input-holder">
-                                <input type="text" class="search-input" placeholder="Enter Location..." />
-                                <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
-                            </div>
-                            <span class="close" onclick="searchToggle(this, event);"></span>
-                            <div class="result-container">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div id="forecastContainer">
-                    <h3 style="font-size: 30px;" id="city"></h3>
-                    <div class="filters">
-                        <button id="highestBtn">Highest</button>
-                        <button id="ascendingBtn">Ascending</button>
-                        <button id="descendingBtn">Descending</button>
-                        <button id="rainbtn">Rain</button>
-                        <button id="resetbtn">Reset</button>
-                    </div>
-                    <table id="forecastTable">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Temperature</th>
-                                <th>Conditions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="forecastBody">
-                            
-                        </tbody>
-                    </table>
-                    <div class="container">
-                        <button class="button" id="startBtn" disabled>
-                          <i class="fa-solid fa-angles-left"></i>
-                        </button>
-                        <button class="button prevNext" id="prev" disabled>
-                          <i class="fa-solid fa-angle-left"></i>
-                        </button>
-                        <div class="links">
-                          <a href="#" class="link active">1</a>
-                          <a href="#" class="link">2</a>
-                          <a href="#" class="link">3</a>
-                          <a href="#" class="link">4</a>
-                        </div>
-                        <button class="button prevNext" id="next">
-                          <i class="fa-solid fa-angle-right"></i>
-                        </button>
-                        <button class="button" id="endBtn">
-                          <i class="fa-solid fa-angles-right"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="chatbot-container">
-                    <div id="chatbot-popup" class="chatbot-popup">
-                        <div id="chatbot">
-                            <div id="chatbox"></div>
-                            <div class="chatbox-item">
-                                <input type="text" id="userInput" placeholder="Ask me about the weather...">
-                                <button id="sendBtn"><i class="fa-solid fa-chevron-circle-right" aria-hidden="true"></i></button>
-                            </div>
-                        </div> 
-                        <button id="crossBtn"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
-                    </div>
-                    <div id="comment-popup"><button id="commentBtn"><i class="fa-solid fa-comment"></i></button></div>
-                </div>           
+          </form>
+        </div>
+        <div id="forecastContainer">
+          <h3 style="font-size: 30px" id="city"></h3>
+          <div class="filters">
+            <div class="button">
+              <button id="highestBtn">Highest</button>
+              <button id="ascendingBtn">Ascending</button>
             </div>
-        </main>
-        <script src="script.js"></script>
-    </body>
+            <div class="button">
+              <button id="descendingBtn">Descending</button>
+              <button id="rainbtn">Rain</button>
+              <button id="resetbtn">Reset</button>
+            </div>
+          </div>
+          <table id="forecastTable">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Temperature</th>
+                <th>Conditions</th>
+              </tr>
+            </thead>
+            <tbody id="forecastBody"></tbody>
+          </table>
+          <div class="container">
+            <button class="button" id="startBtn" disabled>
+              <i class="fa-solid fa-angles-left"></i>
+            </button>
+            <button class="button prevNext" id="prev" disabled>
+              <i class="fa-solid fa-angle-left"></i>
+            </button>
+            <div class="links">
+              <a href="#" class="link active">1</a>
+              <a href="#" class="link">2</a>
+              <a href="#" class="link">3</a>
+              <a href="#" class="link">4</a>
+            </div>
+            <button class="button prevNext" id="next">
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+            <button class="button" id="endBtn">
+              <i class="fa-solid fa-angles-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="chatbot-container">
+          <div id="chatbot-popup" class="chatbot-popup">
+            <div id="chatbot">
+              <div id="chatbox"></div>
+              <div class="chatbox-item">
+                <input
+                  type="text"
+                  id="userInput"
+                  placeholder="Ask me about the weather..."
+                />
+                <button id="sendBtn">
+                  <i
+                    class="fa-solid fa-chevron-circle-right"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+              </div>
+            </div>
+            <button id="crossBtn">
+              <i class="fa fa-times-circle" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div id="comment-popup">
+            <button id="commentBtn"><i class="fa-solid fa-comment"></i></button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>
